@@ -1,13 +1,7 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
-    email = models.CharField(max_length=128)
-    password = models.CharField(max_length=128)
-    first_name = models.CharField(max_length=128)
-    second_name = models.CharField(max_length=128)
-    is_admin = models.BooleanField()
 
 class Project(models.Model):
     name = models.CharField(max_length=128)
