@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="sqlite_jdbc-16670314115-2dbe5d2233e99e41" provider="generic" driver="sqlite_jdbc" name="SQLite - e-project-index-app" save-password="true" read-only="false">
+		<connection server="" database="/home/hector/code/e-project-index/e-project-index-app/webapp/db.sqlite3" url="jdbc:sqlite:/home/hector/code/e-project-index/e-project-index-app/webapp/db.sqlite3" type="dev"/>
+	</data-source>
+	<filters/>
+</data-sources>
