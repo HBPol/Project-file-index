@@ -1,0 +1,10 @@
+
+{% if study_plan_list %}
+    <ul>
+    {% for item in study_plan_list %}
+        <li><a href="/docindex/{{ item.id }}/">{{ item.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No study plans are on the list.</p>
+{% endif %}
