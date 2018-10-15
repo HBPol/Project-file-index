@@ -12,15 +12,19 @@ class Location(models.Model):
     name = models.CharField(max_length=16)
     room_no = models.CharField(max_length=16)
 
-class DocumentType(models.Model):
-    name = models.CharField(max_length=64)
-    short_name = models.CharField(max_length=8)
-
 class Document(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.SET_NULL, blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, blank=True, null=True)
-    doc_type = models.OneToOneField(DocumentType, on_delete=models.CASCADE)
+    
+    DOCUMENT_CODE = (
+        ('SP', 'Study plan'),
+        ('R', 'Report'),
+        ('RDF', 'Related file'),
+        ('LBN', 'Lab book'),
+    )
+    document_code = models.CharField(max_length=3, choices=DOCUMENT_CODE, default='')
+    
     pdf_path = models.CharField(max_length=512)
     is_pdf = models.BooleanField()
     
