@@ -25,7 +25,10 @@ SECRET_KEY = '1g49m#h%*yf7xv1c47!^b7k*x^9m7nxi5d&gv6_2h)d%l#6#h!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.33.10',
+    
+    ]
 
 
 # Application definition
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'indexapp.apps.IndexappConfig',
 ]
 
 MIDDLEWARE = [
