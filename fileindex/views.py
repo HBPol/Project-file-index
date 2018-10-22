@@ -4,8 +4,8 @@ from fileindex.models import Project, Location, StudyPlan, Report, RelatedFile, 
 
 # Generate counts of some of the main objects
 def index(request):
-    num_projects = Project.objec.all().count()
-    num_study_plans = StudyPlan.object.all().count()
+    num_projects = Project.objects.all().count()
+    num_study_plans = StudyPlan.objects.all().count()
     
     
     context = {
@@ -13,4 +13,4 @@ def index(request):
         'num_study_plans': num_study_plans,
     }
     
-    return render(request, 'index.html', context=context)
+    return render(request, 'fileindex/index.html', context=context)
