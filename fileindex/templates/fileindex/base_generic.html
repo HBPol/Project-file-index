@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% block title %}<title>R&D Electronic File Index</title>{% endblock %}
+{% block title %}<title>{{ page_title }}</title>{% endblock %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -16,8 +16,9 @@
 			{% block sidebar %}
 			<ul class="sidebar-nav">
 				<li><a href="{% url 'index' %}">Home</a></li>
-				<li><a href="">All projects</a></li>
-				<li><a href="">All study plans</a></li>
+				<li><a href="{% url 'projects' %}">All projects</a></li>
+				<li><a href="{% url 'reports' %}">All reports</a></li>
+				<li><a href="{% url 'study_plans' %}">All study plans</a></li>
 			</ul>
 			{% endblock %}
 			</div>

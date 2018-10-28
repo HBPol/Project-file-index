@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Project(models.Model):
     name = models.CharField(max_length=128)
@@ -9,7 +10,7 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('project-detail-view', args=[str(self.id)])
 
 class Location(models.Model):
@@ -19,7 +20,7 @@ class Location(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('location-detail-view', args=[str(self.id)])
 
 
@@ -52,7 +53,7 @@ class StudyPlan(Document):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('studyplan-detail-view', args=[str(self.id)])
 
 class Report(Document):
@@ -69,7 +70,7 @@ class Report(Document):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('report-detail-view', args=[str(self.id)])
     
 class RelatedFile(Document):
@@ -83,7 +84,7 @@ class RelatedFile(Document):
     def __str__(self):
         return self.content_descr
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('relatedfile-detail-view', args=[str(self.id)])
     
 class LabBook(Document):
@@ -98,6 +99,6 @@ class LabBook(Document):
     def __str__(self):
         return self.content_descr
     def get_absolute_url(self):
-        """Returns the url to access a particular isntance of the model."""
+        """Returns the url to access a particular instance of the model."""
         return reverse('labbook-detail-view', args=[str(self.id)])
  
