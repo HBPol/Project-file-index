@@ -30,3 +30,6 @@ class ReportListView(generic.ListView):
     
 class StudyPlanListView(generic.ListView):
     model = StudyPlan
+
+class ProjectDetailView(generic.DetailView):
+    model = Project
