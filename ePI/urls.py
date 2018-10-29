@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('fileindex/', include('fileindex.urls')),
     path('', RedirectView.as_view(url='/fileindex/')),
+    path('accounts/', include('django.contrib.auth.urls')),
        
 ]
 
