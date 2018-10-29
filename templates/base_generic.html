@@ -19,6 +19,13 @@
 				<li><a href="{% url 'projects' %}">All projects</a></li>
 				<li><a href="{% url 'reports' %}">All reports</a></li>
 				<li><a href="{% url 'study-plans' %}">All study plans</a></li>
+				<!-- Display logout link if user is authenticated, else display login link -->
+				{% if user.is_authenticated %}
+					<li>User: {{ user.get_username }}</li>
+					<li><a href="{% url 'logout' %}?next={{request.path}}">Adios!</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+				{% endif %}
 			</ul>
 			{% endblock %}
 			</div>

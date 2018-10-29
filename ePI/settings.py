@@ -127,3 +127,6 @@ STATIC_URL = '/static/'
 
 # Redirect to home URL after login (default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+# Website does not support email yet. This is to allow testing (logs any email sent to the console)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
