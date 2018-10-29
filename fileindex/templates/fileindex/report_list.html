@@ -1,4 +1,15 @@
 {% extends "fileindex/base_generic.html" %}
 {% block content %}
 	<h1>List of reports.</h1>
+	{% if report_list %}
+		<ul>		
+			{% for report in report_list %}
+			<li>
+			<a href="{{ report.get_absolute_url }}">{{ report.title }}</a> ({{ report.owner }})
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>There are no reports.</p>
+	{% endif %}
 {% endblock %}

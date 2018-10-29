@@ -11,7 +11,7 @@ class Project(models.Model):
         return self.name
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('project-detail-view', args=[str(self.id)])
+        return reverse('project-detail', args=[str(self.id)])
 
 class Location(models.Model):
     name = models.CharField(max_length=16, null=True, blank=True)
@@ -21,7 +21,7 @@ class Location(models.Model):
         return self.name
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('location-detail-view', args=[str(self.id)])
+        return reverse('location-detail', args=[str(self.id)])
 
 
 class Document(models.Model):
@@ -54,7 +54,7 @@ class StudyPlan(Document):
         return self.title
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('studyplan-detail-view', args=[str(self.id)])
+        return reverse('studyplan-detail', args=[str(self.id)])
 
 class Report(Document):
     study_plan = models.ManyToManyField(StudyPlan)
@@ -71,7 +71,7 @@ class Report(Document):
         return self.title
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('report-detail-view', args=[str(self.id)])
+        return reverse('report-detail', args=[str(self.id)])
     
 class RelatedFile(Document):
     alias = models.CharField(max_length=512)
@@ -85,7 +85,7 @@ class RelatedFile(Document):
         return self.content_descr
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('relatedfile-detail-view', args=[str(self.id)])
+        return reverse('relatedfile-detail', args=[str(self.id)])
     
 class LabBook(Document):
     content_descr = models.TextField(null=True, blank=True)
@@ -100,5 +100,5 @@ class LabBook(Document):
         return self.content_descr
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('labbook-detail-view', args=[str(self.id)])
+        return reverse('labbook-detail', args=[str(self.id)])
  

@@ -24,12 +24,14 @@ def index(request):
 
 class ProjectListView(generic.ListView):
     model = Project
-
 class ReportListView(generic.ListView):
-    model = Report
-    
+    model = Report   
 class StudyPlanListView(generic.ListView):
     model = StudyPlan
 
 class ProjectDetailView(generic.DetailView):
     model = Project
+class ReportDetailView(generic.DetailView):
+    model = Report
+class StudyPlanDetailView(generic.DetailView):
+    model = StudyPlan
