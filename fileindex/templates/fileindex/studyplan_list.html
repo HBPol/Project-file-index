@@ -1,4 +1,17 @@
 {% extends "base_generic.html" %}
 {% block content %}
 	<h1>List of study plans.</h1>
+	
+	{% if studyplan_list %}
+		<ul>		
+			{% for studyplan in studyplan_list %}
+			<li>
+			<a href="{{ studyplan.get_absolute_url }}">{{ studyplan.title }}</a> ({{ studyplan.owner }})
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>There are no study plans.</p>
+	{% endif %}
+	
 {% endblock %}
