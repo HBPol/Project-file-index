@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+	<h1>Project name: {{ project_detail.name }}</h1>
+	<p><strong>Leader:</strong> {{ project_detail.leader }}</p>
+	<p><strong>Project name:</strong> {{ project_detail.name }}</p>
+	<p><strong>Prefix:</strong> {{ project_detail.prefix }}</p>
+	
+	
+	
+<form action="./{{ project_detail.id }}" method="POST">
+	    {% csrf_token %}
+	    <div class="form-group">
+	        Project name:<br>
+	        <input type="text" name="name" value="{{ project_detail.name }}"><br>
+	        Project leader:<br>
+	        <input type="text" name="leader" value="{{ project_detail.leader }}"><br>
+	        <br>
+	        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span>Update</button>
+	    </div>
+	</form>	
+	
+{% endblock %}

@@ -1,15 +1,18 @@
 {% extends "base_generic.html" %}
 {% block content %}
 	<h1>List of projects</h1>
+	
 	{% if project_list %}
 		<ul>		
 			{% for project in project_list %}
 			<li>
-			<a href="{{ project.id }}">{{ project.name }}</a> ({{project.leader}})
+			<a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
 			</li>
 			{% endfor %}
 		</ul>
 		{% else %}
 		<p>There are no projects.</p>
+		
 	{% endif %}
+	<a href="{% url 'project-addnew' %}">Add new project</a>
 {% endblock %}

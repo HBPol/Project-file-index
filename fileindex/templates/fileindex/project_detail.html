@@ -4,4 +4,5 @@
 	<p><strong>Leader:</strong> {{ project_detail.leader }}</p>
 	<p><strong>Project name:</strong> {{ project_detail.name }}</p>
 	<p><strong>Prefix:</strong> {{ project_detail.prefix }}</p>
+	<a href="{% url 'project-update' %}/{{ project_detail.id }}">Update</a>
 {% endblock %}
