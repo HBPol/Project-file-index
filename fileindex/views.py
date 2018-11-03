@@ -56,7 +56,7 @@ def project_update(request, pk):
     if request.method == "POST":
         project = Project.objects.get(id=pk)
         project.name = request.POST['name']
-        project.leader = request.POST['leader']
+        project.leader_id = request.POST['leader']
         project.save()
         return redirect('/')
     else:
