@@ -4,6 +4,9 @@ from fileindex.models import Project, Location, StudyPlan, Report, RelatedFile, 
 from django.views import generic
 
 from django.shortcuts import redirect
+from requests.api import request
+
+from fileindex.forms import StudyPlanForm
 
 def index(request):
     
@@ -23,17 +26,18 @@ def index(request):
     
     return render(request, 'fileindex/index.html', context=context)
 
+# With generic list view:
 # class ProjectListView(generic.ListView):
 #    model = Project
-# class ProjectDetailView(generic.DetailView):
-#    model = Project
-
 def project_list(request):
     page_title = "Project list"
     project = Project.objects.all()
     context = {'page_title': page_title, 'project_list': project}
     return render(request, 'fileindex/project_list.html', context)
 
+# With generic detail view:
+# class ProjectDetailView(generic.DetailView):
+#    model = Project
 def project_detail(request, pk):
     project = Project.objects.get(id=pk)
     context = {'project_detail': project}
@@ -73,3 +77,6 @@ class StudyPlanListView(generic.ListView):
     model = StudyPlan
 class StudyPlanDetailView(generic.DetailView):
     model = StudyPlan
+    
+def studyplan_update(request, pk):
+    pass    
