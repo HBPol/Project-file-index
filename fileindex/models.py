@@ -25,7 +25,7 @@ class Location(models.Model):
 
 
 class Document(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     project = models.ForeignKey(Project, on_delete=models.SET_NULL, blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, blank=True, null=True)
     
@@ -41,13 +41,14 @@ class Document(models.Model):
         abstract = True
 
 class StudyPlan(Document):
+    
     title = models.TextField()
-    STUDY_PLAN_STATUS = (
+    DOCUMENT_STATUS = (
         ('PEN', 'Pending'),
         ('IND', 'In draft'),
         ('COM', 'Complete'),
     )
-    status = models.CharField(max_length=3, choices=STUDY_PLAN_STATUS, default='PEN')
+    status = models.CharField(max_length=3, choices=DOCUMENT_STATUS, default='PEN')
     sign_date = models.DateField(null=True, blank=True)
     
     def __str__(self):
@@ -59,12 +60,12 @@ class StudyPlan(Document):
 class Report(Document):
     study_plan = models.ManyToManyField(StudyPlan)
     title = models.TextField()
-    STUDY_PLAN_STATUS = (
+    DOCUMENT_STATUS = (
         ('PEN', 'Pending'),
         ('IND', 'In draft'),
         ('COM', 'Complete'),
     )
-    status = models.CharField(max_length=3, choices=STUDY_PLAN_STATUS, default='')
+    status = models.CharField(max_length=3, choices=DOCUMENT_STATUS, default='PEN')
     sign_date = models.DateField(null=True, blank=True)
     
     def __str__(self):

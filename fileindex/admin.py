@@ -14,7 +14,7 @@ admin.site.register(LabBook)
 class StudyPlanAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'status', 'sign_date', 'e_copy', 'owner', 'project', 'location')
     # 'fields' attribute list those fields that are to be displayed in the details forms, in order
-    fields = ['title', 'status', ('e_copy', 'sign_date', 'project'), 'location']
+    fields = ['owner', 'title', 'status', ('e_copy', 'sign_date', 'project'), 'location']
 
 # Register the admin class with the associated model
 admin.site.register(StudyPlan, StudyPlanAdmin)
