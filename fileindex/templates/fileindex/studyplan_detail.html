@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+{% block content %}
+	<h1>Title: {{ studyplan.title }}</h1>
+	<p><strong>Author:</strong> {{ studyplan.owner }}</p>
+	<p><strong>Project:</strong> {{ studyplan.project }}</p>
+	<p><strong>Location:</strong> {{ studyplan.location }}</p>
+	<p><strong>Status:</strong> {{ studyplan.status }}</p>
+	<p><strong>Sign off date:</strong> {{ studyplan.sign_date }}</p>
+{% endblock %}

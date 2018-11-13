@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+{% block content %}
+	<h1>Title: {{ report.title }}</h1>
+	<p><strong>Author:</strong> {{ report.owner }}</p>
+	<p><strong>Project:</strong> {{ report.project }}</p>
+	<p><strong>Location:</strong> {{ report.location }}</p>
+	<p><strong>Study:</strong> {{ report.study_plan }}</p>
+	<p><strong>Status:</strong> {{ report.status }}</p>
+	<p><strong>Sign off date:</strong> {{ report.sign_date }}</p>
+{% endblock %}

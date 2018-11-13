@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block content %}
+	<h1>Add a new project</h1>
+	
+	<form action="" method="POST">
+	    {% csrf_token %}
+	    <div class="form-group">
+	        Project name:<br>
+	        <input type="text" name="name"><br>
+	        Project leader:<br>
+	        <input type="text" name="leader"><br>
+	        <br>
+	        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span>Add new</button>
+	    </div>
+	</form>
+	
+{% endblock %}
