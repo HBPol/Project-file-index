@@ -19,4 +19,5 @@ urlpatterns = [
     path('study_plans/<int:pk>', views.StudyPlanDetailView.as_view(), name='studyplan-detail'),
     
     path('study_plans/<int:pk>/update', views.studyplan_update, name='studyplan-update'),
+
 ]

@@ -4,6 +4,7 @@ from fileindex.models import Project, Location, StudyPlan, Report, RelatedFile, 
 from django.views import generic
 
 from django.shortcuts import redirect
+
 #from requests.api import request
 
 from fileindex.forms import StudyPlanForm
@@ -98,5 +99,3 @@ def studyplan_update(request, pk):
         
         
         
-            
-     
