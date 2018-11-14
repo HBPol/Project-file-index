@@ -4,7 +4,7 @@ from fileindex.models import Project, Location, StudyPlan, Report, RelatedFile, 
 from django.views import generic
 
 from django.shortcuts import redirect
-
+from django.http import HttpResponseRedirect
 #from requests.api import request
 
 from fileindex.forms import StudyPlanForm
@@ -86,12 +86,21 @@ def studyplan_update(request, pk):
     if request.method == 'POST':
         # create a form instance and populate with data from the request
         studyplan_update_form = StudyPlanForm(request.POST)
-        return HttpResponseRedirect(reverse('/'))
+        
+        # Check if the form is valid:
+        if studyplan_update_form.is_valid():
+            # process the data in studyplan_update_form.cleaned_data as required (here we just write it to the model due_back field)
+            studyplan.title = studyplan_update_form.cleaned_data['title']
+            studyplan.save()
+        
+            return HttpResponseRedirect('/')
     else:
-        studyplan_update_form = StudyPlanForm(initial={'title': title})
-    
-    contex = {
-        'form': form,
+        
+        #studyplan_update_form = StudyPlanForm(initial={'title': title})
+        studyplan_update_form = StudyPlanForm()
+        
+    context = {
+        'form': studyplan_update_form,
         'studyplan': studyplan,
     }
     
